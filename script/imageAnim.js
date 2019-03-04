@@ -45,6 +45,15 @@
 			e.preventDefault();
 			console.log('ouch! you dropped me!');
 
+			let stopStacking = e.target;
+				while (stopStacking !== 0 && !stopStacking.classList.contains("drop-zone")) {
+				stopStacking = stopStacking.parentNode;
+			}
+
+			if (stopStacking && stopStacking.childNodes.length > 0) {
+				return false;
+				e.preventDefault();
+			}
 			let piece = e.dataTransfer.getData("text/plain");
 			e.target.appendChild(document.querySelector(`#${piece}`));
 		});
