@@ -54,7 +54,13 @@
 	function resetPuzzlePieces() {
 		// empty the container!!! dont fill it up too much :(
 		piecesBoard.innerHTML = "";
-		createPuzzlePieces(this.dataset.puzzleref);		
+		createPuzzlePieces(this.dataset.puzzleref);
+
+		 var photoReset = document.getElementsByClassName("puzzle-image");
+    			while(photoReset.length > 4){
+        		photoReset[4].parentNode.removeChild(photoReset[4]);
+    	}
+
 	}
 
 	puzzleSelectors.forEach(puzzle => puzzle.addEventListener("click", resetPuzzlePieces));
