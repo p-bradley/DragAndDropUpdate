@@ -13,12 +13,12 @@
 		//generate puzzle pieces
 		//debugger;
 		pieces.forEach((piece, index) => {
-			let newPuzzlePiece = <img draggable id="piece${index}" class="puzzle-image" src="images/${piece + pictureIndex}.jpg" alt="thumbnail">
+			let newPuzzlePiece = `<img draggable id="piece${index}" class="puzzle-image" src="images/${piece + pictureIndex}.jpg" alt="thumbnail">`
 			
 			piecesBoard.innerHTML += newPuzzlePiece;
 		});
 
-		puzzleBoard.style.backgroundImage = url(images/background${pictureIndex}.jpg)
+		puzzleBoard.style.backgroundImage = `url(images/background${pictureIndex}.jpg)`
 		
 		initDrag();
 	}
@@ -46,13 +46,13 @@
 			console.log('ouch! you dropped me!');
 
 			let piece = e.dataTransfer.getData("text/plain");
-			e.target.appendChild(document.querySelector(#${piece}));
+			e.target.appendChild(document.querySelector(`#${piece}`));
 		});
 	});
 
 
 	function resetPuzzlePieces() {
-		// empty the container!!! dont fill it up too much 😞
+		// empty the container!!! dont fill it up too much :(
 		piecesBoard.innerHTML = "";
 		createPuzzlePieces(this.dataset.puzzleref);		
 	}
